@@ -1,0 +1,52 @@
+[
+    {
+        "relative_url": "Gyan-data/Ecommerce-Analytics-platform-on-Azure---Medallion-Architecture/refs/heads/main/Data/AdventureWorks_Product_Categories.csv",
+        "raw_folder": "AdventureWorks_Product_Categories",
+        "file_name": "AdventureWorks_Product_Categories.csv"
+    },
+    {
+        "relative_url": "Gyan-data/Ecommerce-Analytics-platform-on-Azure---Medallion-Architecture/refs/heads/main/Data/AdventureWorks_Calendar.csv",
+        "raw_folder": "AdventureWorks_Calendar",
+        "file_name": "AdventureWorks_Calendar.csv"
+    },
+    {
+        "relative_url": "Gyan-data/Ecommerce-Analytics-platform-on-Azure---Medallion-Architecture/refs/heads/main/Data/AdventureWorks_Customers.csv",
+        "raw_folder": "AdventureWorks_Customers",
+        "file_name": "AdventureWorks_Customers.csv"
+    },
+    {
+        "relative_url": "Gyan-data/Ecommerce-Analytics-platform-on-Azure---Medallion-Architecture/refs/heads/main/Data/AdventureWorks_Product_Subcategories.csv",
+        "raw_folder": "Product_Subcategories",
+        "file_name": "AdventureWorks_Product_Subcategories.csv"
+    },
+    {
+        "relative_url": "Gyan-data/Ecommerce-Analytics-platform-on-Azure---Medallion-Architecture/refs/heads/main/Data/AdventureWorks_Products.csv",
+        "raw_folder": "AdventureWorks_Products",
+        "file_name": "AdventureWorks_Products.csv"
+    },
+    {
+        "relative_url": "Gyan-data/Ecommerce-Analytics-platform-on-Azure---Medallion-Architecture/refs/heads/main/Data/AdventureWorks_Returns.csv",
+        "raw_folder": "AdventureWorks_Returns",
+        "file_name": "AdventureWorks_Returns.csv"
+    },
+    {
+        "relative_url": "Gyan-data/Ecommerce-Analytics-platform-on-Azure---Medallion-Architecture/refs/heads/main/Data/AdventureWorks_Sales_2015.csv",
+        "raw_folder": "AdventureWorks_Sales_2015",
+        "file_name": "AdventureWorks_Sales_2015.csv"
+    },
+    {
+        "relative_url": "Gyan-data/Ecommerce-Analytics-platform-on-Azure---Medallion-Architecture/refs/heads/main/Data/AdventureWorks_Sales_2016.csv",
+        "raw_folder": "AdventureWorks_Sales_2016",
+        "file_name": "AdventureWorks_Sales_2016.csv"
+    },
+    {
+        "relative_url": "Gyan-data/Ecommerce-Analytics-platform-on-Azure---Medallion-Architecture/refs/heads/main/Data/AdventureWorks_Sales_2017.csv",
+        "raw_folder": "AdventureWorks_Sales_2017",
+        "file_name": "AdventureWorks_Sales_2017.csv"
+    },
+    {
+        "relative_url": "Gyan-data/Ecommerce-Analytics-platform-on-Azure---Medallion-Architecture/refs/heads/main/Data/AdventureWorks_Territories.csv",
+        "raw_folder": "AdventureWorks_Territories",
+        "file_name": "AdventureWorks_Territories.csv"
+    }
+]
