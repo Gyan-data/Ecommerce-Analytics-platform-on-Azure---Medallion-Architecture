@@ -111,7 +111,9 @@ Example structure:
 
 {
   "relative_url": "Gyan-data/Ecommerce-Azure-Lakehouse-Medallion-Project/refs/heads/main/Data/AdventureWorks_Customers.csv",
+  
   "raw_folder": "AdventureWorks_Customers",
+  
   "file_name": "AdventureWorks_Customers.csv"
 }
 Meaning of Each Field
@@ -125,6 +127,7 @@ file_name: Output file name in ADLS
 This design allows adding a new file by only updating the JSON, without touching the pipeline.
 
 Azure Data Factory Pipeline Flow
+
 1. Lookup Activity – Lookup_git
 
 Reads git.json from ADLS
@@ -181,6 +184,7 @@ Fully reusable pipeline
 <img width="1920" height="597" alt="image" src="https://github.com/user-attachments/assets/18745db4-7ba2-44f0-a54f-712309cde0e5" />
 
 Databricks ↔ ADLS Connection using Entra ID
+
 Step 1: Create App Registration (Service Principal)
 
 Go to Azure Portal → Microsoft Entra ID → App registrations
@@ -266,20 +270,27 @@ Not exposed in notebooks
 Step 5: Configure Databricks to Access ADLS
 
 Use the following Spark configuration once per cluster or notebook:
+
 configs = {
 "fs.azure.account.auth.type": "OAuth",
+
 "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+
 "fs.azure.account.oauth2.client.id": dbutils.secrets.get(scope="adls-scope", key="client-id"),
+
 "fs.azure.account.oauth2.client.secret": dbutils.secrets.get(scope="adls-scope", key="client-secret"),
+
 "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<TENANT_ID>/oauth2/token"
 }
 Replace <TENANT_ID> with your Directory (Tenant) ID.
 
 for key, value in configs.items():
+
 spark.conf.set(key, value)
 
 
 for key, value in configs.items():
+
 spark.conf.set(key, value)
 
 Step 6: Read Data from ADLS in Databricks
@@ -382,6 +393,7 @@ Note: Column names must be passed in single quotes when using col().
 
 Code
 from pyspark.sql.functions import *
+
 from pyspark.sql.types import *
 
 
@@ -641,6 +653,51 @@ df_sales.groupBy('OrderDate') \
 .agg(count('OrderNumber').alias('TotalOrders')) \
 .display()
 
+<img width="1474" height="724" alt="image" src="https://github.com/user-attachments/assets/ca6efb36-90e1-4c96-98a0-832215801f6d" />
+
+<img width="1429" height="696" alt="image" src="https://github.com/user-attachments/assets/e7a76b50-6e6e-49db-9d7c-3fab0b4c024d" />
+
+<img width="1430" height="712" alt="image" src="https://github.com/user-attachments/assets/79e58a5f-c0f2-49b5-8502-e3c56ce2110c" />
+
+<img width="1410" height="615" alt="image" src="https://github.com/user-attachments/assets/550575af-f07a-439b-9b8a-664c3166e6c3" />
+
+<img width="1416" height="678" alt="image" src="https://github.com/user-attachments/assets/81142f78-86e4-4f97-943e-da0e3d8d6393" />
+
+<img width="1447" height="759" alt="image" src="https://github.com/user-attachments/assets/20a97867-2274-4281-b305-e14d7fe44f1b" />
+
+<img width="1419" height="763" alt="image" src="https://github.com/user-attachments/assets/fff0e798-7768-4e7e-b37e-9e03d7aaeec4" />
+
+<img width="1444" height="737" alt="image" src="https://github.com/user-attachments/assets/aec5227d-59ec-4b79-a2fa-0c2774f65621" />
+
+<img width="1395" height="705" alt="image" src="https://github.com/user-attachments/assets/f394fdec-589b-4fb0-8067-237761bd82be" />
+
+<img width="1438" height="761" alt="image" src="https://github.com/user-attachments/assets/a80484f5-bba2-460c-90d0-90becc3398aa" />
+
+<img width="1273" height="758" alt="image" src="https://github.com/user-attachments/assets/399f9be1-3dd3-4b32-9309-14207df0f9d8" />
+
+<img width="1500" height="743" alt="image" src="https://github.com/user-attachments/assets/afb62672-9c0e-4e08-9c56-c1d615d84944" />
+
+<img width="1453" height="690" alt="image" src="https://github.com/user-attachments/assets/a7526ef0-c6ec-4cef-b212-e1e393bb3837" />
+
+<img width="1476" height="721" alt="image" src="https://github.com/user-attachments/assets/fc06e024-c0f6-47a9-aa2a-ba2c805fb8ed" />
+
+<img width="1508" height="778" alt="image" src="https://github.com/user-attachments/assets/a754d80d-3371-4ec9-9e9b-42def88c6d45" />
+
+<img width="1454" height="671" alt="image" src="https://github.com/user-attachments/assets/1a5bb973-abe7-4f6f-8665-ae786966f3c4" />
+
+<img width="1465" height="695" alt="image" src="https://github.com/user-attachments/assets/73c3844d-041b-49e2-9a94-613dbc7991be" />
+
+<img width="1428" height="666" alt="image" src="https://github.com/user-attachments/assets/874c1f4c-bfbf-4925-bd08-5de49f3cb554" />
+
+<img width="1412" height="703" alt="image" src="https://github.com/user-attachments/assets/c968dc20-77ae-4f72-afe7-dca45cb8b3af" />
+
+<img width="1406" height="766" alt="image" src="https://github.com/user-attachments/assets/75bff9ab-93da-49d1-9ec1-bceda2dd6d68" />
+
+<img width="1469" height="710" alt="image" src="https://github.com/user-attachments/assets/51c2b3a3-e3cd-46d6-8ee5-613e7e66d6cd" />
+
+<img width="1416" height="730" alt="image" src="https://github.com/user-attachments/assets/323897b5-792d-4571-b2a3-e205a4502f7b" />
+
+
 9. Visualization in Databricks
 Purpose
 
@@ -685,4 +742,7 @@ PySpark functions used are interview-relevant
 Code follows enterprise data engineering standards
 
 Data is stored in columnar Parquet format for performance
+
+###AZURE SYNAPES ANALYTICS
+
 
