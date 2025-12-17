@@ -991,7 +991,11 @@ From a data engineering perspective, this step highlights that the role does not
 <img width="1333" height="619" alt="image" src="https://github.com/user-attachments/assets/e67efb94-70df-414e-9a38-ff8855a00733" />
 
 
+# Author
 
+**Gyan Singh**
+
+ Data Engineer | Azure/AWS | ADF | Databricks | PySpark | SQL
 
 
 
