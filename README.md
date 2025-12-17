@@ -953,7 +953,10 @@ This approach demonstrates a complete Lakehouse reporting flow: data is stored c
 <img width="1920" height="439" alt="image" src="https://github.com/user-attachments/assets/7afe658f-926b-4405-ace2-915cc79b2428" />
 <img width="1911" height="815" alt="image" src="https://github.com/user-attachments/assets/ad78c4d7-7f94-4f4f-9ea8-9026562526a0" />
 <img width="1394" height="411" alt="image" src="https://github.com/user-attachments/assets/837a3bcf-ee74-4538-ab9a-3aed0c7508d2" />
+
 <img width="1394" height="411" alt="image" src="https://github.com/user-attachments/assets/a35af8dd-5342-4a40-9f87-f5c6c3247dcd" />
+
+<img width="1268" height="347" alt="image" src="https://github.com/user-attachments/assets/c6e6142a-d5cf-4750-a2e0-8552f1d12f39" />
 
 In Azure Synapse Analytics, the difference between managed tables, external tables, and views is primarily about where the data is stored and who controls it. A managed table stores both the metadata and the actual data inside the analytics system itself. This model is common in systems like Databricks managed tables, where the platform controls the storage location. However, in Synapse Serverless SQL, we typically avoid managed tables because the core design follows the Lakehouse architecture, where data must remain in Azure Data Lake rather than being stored inside the database engine.
 
@@ -987,7 +990,6 @@ From a data engineering perspective, this step highlights that the role does not
 
 <img width="1333" height="619" alt="image" src="https://github.com/user-attachments/assets/e67efb94-70df-414e-9a38-ff8855a00733" />
 
-<img width="1268" height="347" alt="image" src="https://github.com/user-attachments/assets/c6e6142a-d5cf-4750-a2e0-8552f1d12f39" />
 
 
 
