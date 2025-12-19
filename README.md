@@ -245,9 +245,7 @@ Sales trends
 👤 Author
 
 Gyan Singh
-
 Data Engineer
-
 Azure | AWS | ADF | Databricks | PySpark | SQL
 
 
