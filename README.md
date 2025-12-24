@@ -1,5 +1,7 @@
 # End-to-end Azure Lakehouse Medallion Architecture
 
+🚀 Designed using enterprise-grade Azure data engineering patterns used in production systems.
+
 **Technologies**: Azure Data Factory | ADLS Gen2 | Azure Databricks | Azure Synapse (Serverless SQL) | Power BI
 
 **Production-grade Azure Lakehouse project demonstrating real-world, enterprise data engineering patterns.**
@@ -307,7 +309,8 @@ External Tables (CETAS) → Physical Gold data in ADLS
 
 Data Engineer
 
-Azure | AWS | ADF | Databricks | PySpark | SQL
+Azure | AWS | ADF | Databricks | ADLS Gen2 | Synapse Analytics | PySpark | SQL | Power BI
+
 
 
 
