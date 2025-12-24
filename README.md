@@ -18,8 +18,6 @@ Lakehouse analytics using Synapse Serverless SQL
 
 Business reporting with Power BI
 
-This repository is designed to be recruiter-friendly and interview-ready, clearly mapping tools to responsibilities.
-
 🏗️ Architecture Overview
 High-Level Flow
 
@@ -126,9 +124,9 @@ dbutils.secrets.get(scope="adls-scope", key="client-id")
 
 ✔ Secure
 ✔ Production-ready
-✔ Interview-relevant
 
 ⚙️ Silver Layer – Data Transformation (Azure Databricks)
+
 Transformation Principles
 
 Read from Bronze
@@ -165,7 +163,9 @@ df_sales = df_sales.withColumn(
 )
 
 <img src="https://github.com/user-attachments/assets/ca6efb36-90e1-4c96-98a0-832215801f6d" />
+
 📊 Databricks Analysis Example
+
 
 Business Question:
 How many orders are placed per day?
@@ -189,8 +189,6 @@ Uses System Assigned Managed Identity
 No secrets or passwords
 
 RBAC-based access to ADLS
-
-Interview Keyword:
 
 “Synapse accesses ADLS using Managed Identity”
 
