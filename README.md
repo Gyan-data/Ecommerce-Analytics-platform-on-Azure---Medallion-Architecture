@@ -299,9 +299,9 @@ Connectivity
 - BI-ready Gold layer design
 
 
-👤 Author
+**👤 Author**
 
-Gyan Singh
+**Gyan Singh**
 
 Data Engineer
 
