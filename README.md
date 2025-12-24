@@ -4,7 +4,7 @@ Technologies: Azure Data Factory | ADLS Gen2 | Azure Databricks | Azure Synapse 
 
 Production-grade Azure Lakehouse project demonstrating real-world, enterprise data engineering patterns.
 
-📌** Project Overview**
+📌 **Project Overview**
 
 This project demonstrates a production-ready Azure Lakehouse architecture built using the Medallion pattern (Bronze → Silver → Gold) on an E-commerce / Retail (AdventureWorks) dataset.
 
@@ -29,14 +29,20 @@ Data Source → ADF → ADLS (Bronze) → Databricks (Silver) → Synapse (Gold)
 <img src="https://github.com/user-attachments/assets/7ed4e602-5fbe-4363-9fd9-f234c5553732" />
 
 🧰 Technology Stack
+
 Layer	Technology
-Ingestion	Azure Data Factory
-Storage	Azure Data Lake Gen2
-Transformation	Azure Databricks (PySpark)
-Serving	Azure Synapse Analytics (Serverless SQL)
-Reporting	Power BI
-Security	Azure Entra ID, Managed Identity
-Version Control	GitHub
+
+Ingestion	 → Azure Data Factory
+
+Storage	Azure  → Data Lake Gen2
+
+Transformation  →	Azure Databricks (PySpark)
+
+Serving	 → Azure Synapse Analytics (Serverless SQL)
+
+Reporting  → 	Power BI
+
+Security	 → Azure Entra ID, Managed Identity
 
 Dataset
 
@@ -46,18 +52,27 @@ Link: https://www.kaggle.com/datasets/ukveteran/adventure-works/data
 
 Files Used:
 
-Customers, Products, Categories
+Customers
+
+Products
+
+Categories
 
 Sales (2015–2017)
 
-Returns, Calendar, Territories
+Returns
+
+Calendar
+
+Territories
 
 All files are stored under the /Data directory.
 
 🟤 Bronze Layer – Data Ingestion (Azure Data Factory)
+
 🎯 Objective
 
-Ingest multiple CSV files from GitHub into ADLS without hardcoding, using a metadata-driven pipeline.
+Ingest multiple CSV files from GitHub into ADLS dynamically, without hardcoding file paths or names.
 
 ❌ Why Not Static Pipelines?
 
@@ -90,44 +105,49 @@ Output filename
 
 🔄 ADF Pipeline Flow
 
-Lookup Activity
+Lookup Activity – Reads git.json
 
-Reads git.json
+ForEach Activity – Iterates dynamically
 
-ForEach Activity
+Copy Data Activity – GitHub → ADLS Bronze (parameterized)
 
-Iterates dynamically
+✔ Scalable
 
-Copy Data Activity
+✔ Reusable 
 
-GitHub → ADLS Bronze (parameterized)
+✔ Enterprise-ready
 
 <img src="https://github.com/user-attachments/assets/d711ec46-30de-434d-9857-39ed488462a6" /> <img src="https://github.com/user-attachments/assets/18745db4-7ba2-44f0-a54f-712309cde0e5" />
-🔐 Secure Databricks ↔ ADLS Access (Entra ID)
-Authentication Method
 
-Service Principal (OAuth) – no storage keys used.
+🔐 Secure Databricks ↔ ADLS Authentication (Azure Entra ID) Authentication Model
 
-Steps Implemented
+Service Principal (OAuth)
 
-App Registration (Client ID, Tenant ID)
+No storage keys
 
-Client Secret creation
+No secrets in code
+
+Security Steps Implemented
+
+Azure App Registration
+
+Client ID & Tenant ID
+
+Client Secret (stored securely)
 
 RBAC: Storage Blob Data Contributor
 
 Databricks Secret Scope
 
-OAuth Spark Configuration
+OAuth Spark configuration
 
-spark.conf.set(
-"fs.azure.account.oauth2.client.id",
-dbutils.secrets.get(scope="adls-scope", key="client-id")
-)
-
+spark.conf.set( "fs.azure.account.oauth2.client.id", dbutils.secrets.get(scope="adls-scope", key="client-id") )
 
 ✔ Secure
-✔ Production-ready
+
+✔ Production-grade 
+
+✔ Audit-friendly
 
 ⚙️ Silver Layer – Data Transformation (Azure Databricks)
 
@@ -224,10 +244,13 @@ Views → Logical business layer
 External Tables (CETAS) → Physical Gold data in ADLS
 
 ✔ Stable schemas
+
 ✔ Power BI optimized
+
 ✔ Enterprise governance
 
 📈 Power BI – Reporting Layer
+
 Connectivity
 
 Connects to Synapse Serverless SQL Endpoint
@@ -237,6 +260,7 @@ Reads Gold views / external tables
 No direct ADLS access required
 
 <img src="https://github.com/user-attachments/assets/b6357724-6f14-482b-9393-f230afc1c9f8" /> <img src="https://github.com/user-attachments/assets/e67efb94-70df-414e-9a38-ff8855a00733" />
+
 Sample Insights
 
 Total Customers
@@ -245,11 +269,37 @@ Year-wise growth
 
 Sales trends
 
+🧩 Business Use Cases Enabled
+
+Daily sales and revenue reporting
+
+Customer growth analysis
+
+Product performance insights
+
+Year-over-year trend analysis
+
+Self-service BI reporting
+
+## Key Concepts Demonstrated
+
+- Metadata-driven ETL design
+  
+- Secure Azure authentication (Entra ID, Managed Identity)
+  
+- Spark optimization & partitioned writes
+  
+- Lakehouse architecture with Serverless SQL
+  
+- BI-ready Gold layer design
+
+
 👤 Author
 
 Gyan Singh
 
 Data Engineer
+
 Azure | AWS | ADF | Databricks | PySpark | SQL
 
 
