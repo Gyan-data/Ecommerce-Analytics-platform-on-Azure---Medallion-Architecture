@@ -115,6 +115,7 @@ Each entry defines:
 ✔ Enterprise-ready
 
  <img src="https://github.com/user-attachments/assets/18745db4-7ba2-44f0-a54f-712309cde0e5" />
+ 
 
 **🔐 Secure Databricks ↔ ADLS Authentication (Azure Entra ID) Authentication Model**
 
