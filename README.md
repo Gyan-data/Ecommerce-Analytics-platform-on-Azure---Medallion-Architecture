@@ -192,6 +192,7 @@ df_sales = df_sales.withColumn(
 
 
 Business Question:
+
 How many orders are placed per day?
 
 df_sales.groupBy("OrderDate") \
@@ -201,11 +202,13 @@ df_sales.groupBy("OrderDate") \
 Visualizations created directly in Databricks for quick insights.
 
 🟡 Gold Layer – Azure Synapse Analytics (Lakehouse)
+
 Why Synapse?
 
 ADF + Spark + SQL Analytics = Synapse
 
 <img src="https://github.com/user-attachments/assets/13fd0318-bb68-4888-9763-ee5e2b382528" />
+
 🔑 Security Model
 
 Uses System Assigned Managed Identity
@@ -223,6 +226,7 @@ Data Lake: Low-cost storage but limited analytics capability
 Data Warehouse: Strong SQL and BI support but expensive and less scalable
 
 Lakehouse: Combines cheap storage + SQL analytics + BI friendliness + scalability, making it the modern preferred architecture
+
 Serverless SQL (Key Concept)
 
 No infrastructure to manage
@@ -261,25 +265,25 @@ No direct ADLS access required
 
 <img src="https://github.com/user-attachments/assets/b6357724-6f14-482b-9393-f230afc1c9f8" /> <img src="https://github.com/user-attachments/assets/e67efb94-70df-414e-9a38-ff8855a00733" />
 
-Sample Insights
+- Sample Insights
 
-Total Customers
+- Total Customers
 
-Year-wise growth
+- Year-wise growth
 
-Sales trends
+- Sales trends
 
-🧩 Business Use Cases Enabled
+🧩 **Business Use Cases Enabled**
 
-Daily sales and revenue reporting
+- Daily sales and revenue reporting
 
-Customer growth analysis
+- Customer growth analysis
 
-Product performance insights
+- Product performance insights
 
-Year-over-year trend analysis
+- Year-over-year trend analysis
 
-Self-service BI reporting
+- Self-service BI reporting
 
 ## Key Concepts Demonstrated
 
