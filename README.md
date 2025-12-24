@@ -195,11 +195,12 @@ Interview Keyword:
 “Synapse accesses ADLS using Managed Identity”
 
 🏗️ Lakehouse Architecture Explained
-Feature	Data Lake	Data Warehouse	Lakehouse
-Cheap Storage	✅	❌	✅
-SQL Queries	❌	✅	✅
-Scalability	✅	❌	✅
-BI Friendly	❌	✅	✅
+
+Data Lake: Low-cost storage but limited analytics capability
+
+Data Warehouse: Strong SQL and BI support but expensive and less scalable
+
+Lakehouse: Combines cheap storage + SQL analytics + BI friendliness + scalability, making it the modern preferred architecture
 Serverless SQL (Key Concept)
 
 No infrastructure to manage
