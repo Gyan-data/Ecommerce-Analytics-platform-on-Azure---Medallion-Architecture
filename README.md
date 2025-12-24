@@ -88,11 +88,11 @@ ADF reads ingestion instructions from a JSON control file (git.json) stored in A
 
 Each entry defines:
 
-Source file path
+- Source -> file path
 
-Target folder
+- Target -> folder
 
-Output filename
+- Output -> filename
 
 {
   "relative_url": "Gyan-data/.../AdventureWorks_Customers.csv",
