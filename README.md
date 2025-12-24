@@ -11,13 +11,9 @@ This project demonstrates a production-ready Azure Lakehouse architecture built 
 The objective is to showcase real-world Azure Data Engineering skills, including:
 
 - Metadata-driven ingestion(No Hard coding)
-
 - Secure cloud authentication (Entra ID, Managed Identity)
-
 - Scalable Spark transformations
-
 - Lakehouse analytics using Synapse Serverless SQL
-
 - Business reporting with Power BI
 
   ## Why This Project Matters
@@ -37,49 +33,37 @@ Data Source → ADF → ADLS (Bronze) → Databricks (Silver) → Synapse (Gold)
 
 <img src="https://github.com/user-attachments/assets/7ed4e602-5fbe-4363-9fd9-f234c5553732" />
 
-🧰 Technology Stack
+**🧰 Technology Stack**
 
 - Layer	Technology
-
 - Ingestion	 → Azure Data Factory
-
 - Storage	Azure  → Data Lake Gen2
-
 - Transformation  →	Azure Databricks (PySpark)
-
 - Serving	 → Azure Synapse Analytics (Serverless SQL)
-  
-- Reporting  → 	Power BI
-
+-  Reporting  → 	Power BI
 - Security	 → Azure Entra ID, Managed Identity
 
-Dataset
+**Dataset**
 
 Source: AdventureWorks Dataset (Kaggle)
 
 Link: https://www.kaggle.com/datasets/ukveteran/adventure-works/data
 
-Files Used:
+**Files Used:**
 
 - Customers
-
 - Products
-
 - Categories
-
 - Sales (2015–2017)
-
 - Returns
-
 - Calendar
-
 - Territories
 
 All files are stored under the /Data directory.
 
 🟤 Bronze Layer – Data Ingestion (Azure Data Factory)
 
-🎯 Objective
+**🎯 Objective**
 
  Ingest multiple CSV files from GitHub into ADLS dynamically, without hardcoding file paths or names.
 
@@ -91,33 +75,31 @@ All files are stored under the /Data directory.
 
 3. Poor scalability & maintenance
 
-✅ Dynamic Metadata-Driven Design
+**✅ Dynamic Metadata-Driven Design**
 
 ADF reads ingestion instructions from a JSON control file (git.json) stored in ADLS.
 
 Each entry defines:
 
 - Source -> file path
-
 - Target -> folder
-
 - Output -> filename
 
 {
   "relative_url": "Gyan-data/.../AdventureWorks_Customers.csv",
+  
   "raw_folder": "AdventureWorks_Customers",
+  
   "file_name": "AdventureWorks_Customers.csv"
 }
 
 
 👉 New files can be ingested by updating JSON only. No pipeline changes required.
 
-🔄 ADF Pipeline Flow
+**🔄 ADF Pipeline Flow**
 
 - Lookup Activity – Reads git.json
-
 - ForEach Activity – Iterates dynamically
-
 - Copy Data Activity – GitHub → ADLS Bronze (parameterized)
 
 ✔ Scalable
@@ -128,7 +110,7 @@ Each entry defines:
 
 <img src="https://github.com/user-attachments/assets/d711ec46-30de-434d-9857-39ed488462a6" /> <img src="https://github.com/user-attachments/assets/18745db4-7ba2-44f0-a54f-712309cde0e5" />
 
-🔐 Secure Databricks ↔ ADLS Authentication (Azure Entra ID) Authentication Model
+**🔐 Secure Databricks ↔ ADLS Authentication (Azure Entra ID) Authentication Model**
 
 - Service Principal (OAuth)
 
@@ -144,11 +126,11 @@ Each entry defines:
 
 - Client Secret (stored securely)
 
-RBAC: Storage Blob Data Contributor
+- RBAC: Storage Blob Data Contributor
 
-Databricks Secret Scope
+- Databricks Secret Scope
 
-OAuth Spark configuration
+- OAuth Spark configuration
 
 spark.conf.set( "fs.azure.account.oauth2.client.id", dbutils.secrets.get(scope="adls-scope", key="client-id") )
 
@@ -170,7 +152,7 @@ spark.conf.set( "fs.azure.account.oauth2.client.id", dbutils.secrets.get(scope="
 
 - Write optimized Parquet data
 
-🔹 Key Transformations
+**🔹 Key Transformations**
 
 - Calendar
 
@@ -198,7 +180,7 @@ df_sales = df_sales.withColumn(
 
 <img src="https://github.com/user-attachments/assets/ca6efb36-90e1-4c96-98a0-832215801f6d" />
 
-📊 Databricks Analysis Example
+**📊 Databricks Analysis Example**
 
 
 Business Question:
@@ -211,15 +193,15 @@ df_sales.groupBy("OrderDate") \
 
 Visualizations created directly in Databricks for quick insights.
 
+<img src="https://github.com/user-attachments/assets/13fd0318-bb68-4888-9763-ee5e2b382528" />
+
 🟡 Gold Layer – Azure Synapse Analytics (Lakehouse)
 
 Why Synapse?
 
 ADF + Spark + SQL Analytics = Synapse
 
-<img src="https://github.com/user-attachments/assets/13fd0318-bb68-4888-9763-ee5e2b382528" />
-
-🔑 Security Model
+🔑 **Security Model**
 
 - Uses System Assigned Managed Identity
 
@@ -229,7 +211,7 @@ ADF + Spark + SQL Analytics = Synapse
 
 “Synapse accesses ADLS using Managed Identity”
 
-🏗️ Why Lakehouse Architecture
+**🏗️ Why Lakehouse Architecture**
 
 Data Lake: Low-cost storage but limited analytics capability
 
@@ -243,7 +225,7 @@ Lakehouse: Combines cheap storage + SQL analytics + BI friendliness + scalabilit
 
 - Pay-per-query
 
-Uses OPENROWSET() to read Parquet directly from ADLS
+**Uses OPENROWSET() to read Parquet directly from ADLS**
 
 SELECT *
 FROM OPENROWSET(
@@ -251,7 +233,7 @@ FROM OPENROWSET(
     FORMAT = 'PARQUET'
 ) AS result
 
-Gold Layer Design
+**Gold Layer Design**
 
 Views → Logical business layer
 
@@ -265,7 +247,7 @@ External Tables (CETAS) → Physical Gold data in ADLS
 
 📈 Power BI – Reporting Layer
 
-Connectivity
+**Connectivity**
 
 - Connects to Synapse Serverless SQL Endpoint
 
