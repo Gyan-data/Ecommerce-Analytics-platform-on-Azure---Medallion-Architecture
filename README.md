@@ -20,6 +20,15 @@ The objective is to showcase real-world Azure Data Engineering skills, including
 
 - Business reporting with Power BI
 
+  ## Why This Project Matters
+
+This project demonstrates how modern enterprises:
+- Avoid hardcoded pipelines
+- Implement secure, password-less data access
+- Scale analytics using Lakehouse architecture
+- Enable BI without moving data into warehouses
+
+
 ## Architecture Diagram
 
 - High-Level Flow
@@ -264,7 +273,7 @@ Connectivity
 
 - No direct ADLS access required
 
-<img src="https://github.com/user-attachments/assets/b6357724-6f14-482b-9393-f230afc1c9f8" /> <img src="https://github.com/user-attachments/assets/e67efb94-70df-414e-9a38-ff8855a00733" />
+<img src="https://github.com/user-attachments/assets/b6357724-6f14-482b-9393-f230afc1c9f8" />
 
 - Sample Insights
 
