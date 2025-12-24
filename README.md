@@ -1,18 +1,16 @@
 # End-to-end Azure Lakehouse Medallion Architecture
 
-## Architecture Diagram
-![Azure Lakehouse Architecture](./images/architecture.png)
+Technologies: Azure Data Factory | ADLS Gen2 | Azure Databricks | Azure Synapse (Serverless SQL) | Power BI
 
+Production-grade Azure Lakehouse project demonstrating real-world, enterprise data engineering patterns.
 
-(ADF | ADLS Gen2 | Databricks | Synapse | Power BI)
-
-📌 Project Overview
+📌** Project Overview**
 
 This project demonstrates a production-ready Azure Lakehouse architecture built using the Medallion pattern (Bronze → Silver → Gold) on an E-commerce / Retail (AdventureWorks) dataset.
 
 The objective is to showcase real-world Azure Data Engineering skills, including:
 
-Metadata-driven ingestion
+Metadata-driven ingestion(No Hard coding)
 
 Secure cloud authentication (Entra ID, Managed Identity)
 
@@ -22,12 +20,14 @@ Lakehouse analytics using Synapse Serverless SQL
 
 Business reporting with Power BI
 
-🏗️ Architecture Overview
+## Architecture Diagram
+
 High-Level Flow
 
 Data Source → ADF → ADLS (Bronze) → Databricks (Silver) → Synapse (Gold) → Power BI
 
 <img src="https://github.com/user-attachments/assets/7ed4e602-5fbe-4363-9fd9-f234c5553732" />
+
 🧰 Technology Stack
 Layer	Technology
 Ingestion	Azure Data Factory
