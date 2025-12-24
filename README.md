@@ -1,10 +1,9 @@
 # End-to-end Azure Lakehouse Medallion Architecture
 
-🚀 Designed using enterprise-grade Azure data engineering patterns used in production systems.
+**🚀 Designed using enterprise-grade Azure data engineering patterns used in production systems.**
 
 **Technologies**: Azure Data Factory | ADLS Gen2 | Azure Databricks | Azure Synapse (Serverless SQL) | Power BI
 
-**Production-grade Azure Lakehouse project demonstrating real-world, enterprise data engineering patterns.**
 
 📌 **Project Overview**
 
@@ -12,7 +11,7 @@ This project demonstrates a production-ready Azure Lakehouse architecture built 
 
 The objective is to showcase real-world Azure Data Engineering skills, including:
 
-- Metadata-driven ingestion(No Hard coding)
+- Metadata-driven ingestion (no hardcoding)
 - Secure cloud authentication (Entra ID, Managed Identity)
 - Scalable Spark transformations
 - Lakehouse analytics using Synapse Serverless SQL
