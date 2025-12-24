@@ -304,6 +304,8 @@ External Tables (CETAS) → Physical Gold data in ADLS
 5. Query Gold layer using Azure Synapse Serverless SQL
 6. Build Power BI reports on top of Gold views
 
+⭐ This project reflects real-world Azure data engineering patterns used in production analytics platforms.
+
 
 
 
