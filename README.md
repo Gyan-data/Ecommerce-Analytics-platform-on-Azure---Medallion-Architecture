@@ -298,6 +298,16 @@ Connectivity
   
 - BI-ready Gold layer design
 
+  ## ▶️ How to Run This Project
+
+1. Upload source CSV files to the GitHub repository
+2. Configure Azure Data Factory linked services
+3. Trigger the metadata-driven ingestion pipeline
+4. Execute Databricks notebooks for Silver transformations
+5. Query Gold layer using Azure Synapse Serverless SQL
+6. Build Power BI reports on top of Gold views
+
+
 
 **👤 Author**
 
