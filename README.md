@@ -1,5 +1,9 @@
 # End-to-end Azure Lakehouse Medallion Architecture
 
+## Architecture Diagram
+![Azure Lakehouse Architecture](./images/architecture.png)
+
+
 (ADF | ADLS Gen2 | Databricks | Synapse | Power BI)
 
 📌 Project Overview
