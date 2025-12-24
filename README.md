@@ -194,7 +194,7 @@ Interview Keyword:
 
 “Synapse accesses ADLS using Managed Identity”
 
-🏗️ Lakehouse Architecture Explained
+🏗️ Why Lakehouse Architecture
 
 Data Lake: Low-cost storage but limited analytics capability
 
