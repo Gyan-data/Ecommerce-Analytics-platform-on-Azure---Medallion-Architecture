@@ -102,6 +102,8 @@ Each entry defines:
 
 **🔄 ADF Pipeline Flow**
 
+<img src="https://github.com/user-attachments/assets/d711ec46-30de-434d-9857-39ed488462a6" />
+
 - Lookup Activity – Reads git.json
 - ForEach Activity – Iterates dynamically
 - Copy Data Activity – GitHub → ADLS Bronze (parameterized)
@@ -112,7 +114,7 @@ Each entry defines:
 
 ✔ Enterprise-ready
 
-<img src="https://github.com/user-attachments/assets/d711ec46-30de-434d-9857-39ed488462a6" /> <img src="https://github.com/user-attachments/assets/18745db4-7ba2-44f0-a54f-712309cde0e5" />
+ <img src="https://github.com/user-attachments/assets/18745db4-7ba2-44f0-a54f-712309cde0e5" />
 
 **🔐 Secure Databricks ↔ ADLS Authentication (Azure Entra ID) Authentication Model**
 
