@@ -37,13 +37,15 @@ Data Source → ADF → ADLS (Bronze) → Databricks (Silver) → Synapse (Gold)
 
 **🧰 Technology Stack**
 
-- Layer	Technology
-- Ingestion	 → Azure Data Factory
-- Storage	Azure  → Data Lake Gen2
-- Transformation  →	Azure Databricks (PySpark)
-- Serving	 → Azure Synapse Analytics (Serverless SQL)
--  Reporting  → 	Power BI
-- Security	 → Azure Entra ID, Managed Identity
+| Layer | Technology |
+|------|-----------|
+| Ingestion | Azure Data Factory |
+| Storage | Azure Data Lake Gen2 |
+| Transformation | Azure Databricks (PySpark) |
+| Serving | Azure Synapse (Serverless SQL) |
+| Reporting | Power BI |
+| Security | Azure Entra ID, Managed Identity |
+
 
 **Dataset**
 
