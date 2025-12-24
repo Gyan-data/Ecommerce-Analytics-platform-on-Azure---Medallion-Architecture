@@ -1,8 +1,8 @@
 # End-to-end Azure Lakehouse Medallion Architecture
 
-Technologies: Azure Data Factory | ADLS Gen2 | Azure Databricks | Azure Synapse (Serverless SQL) | Power BI
+**Technologies**: Azure Data Factory | ADLS Gen2 | Azure Databricks | Azure Synapse (Serverless SQL) | Power BI
 
-Production-grade Azure Lakehouse project demonstrating real-world, enterprise data engineering patterns.
+**Production-grade Azure Lakehouse project demonstrating real-world, enterprise data engineering patterns.**
 
 📌 **Project Overview**
 
@@ -10,19 +10,19 @@ This project demonstrates a production-ready Azure Lakehouse architecture built 
 
 The objective is to showcase real-world Azure Data Engineering skills, including:
 
-Metadata-driven ingestion(No Hard coding)
+- Metadata-driven ingestion(No Hard coding)
 
-Secure cloud authentication (Entra ID, Managed Identity)
+- Secure cloud authentication (Entra ID, Managed Identity)
 
-Scalable Spark transformations
+- Scalable Spark transformations
 
-Lakehouse analytics using Synapse Serverless SQL
+- Lakehouse analytics using Synapse Serverless SQL
 
-Business reporting with Power BI
+- Business reporting with Power BI
 
 ## Architecture Diagram
 
-High-Level Flow
+- High-Level Flow
 
 Data Source → ADF → ADLS (Bronze) → Databricks (Silver) → Synapse (Gold) → Power BI
 
@@ -30,19 +30,19 @@ Data Source → ADF → ADLS (Bronze) → Databricks (Silver) → Synapse (Gold)
 
 🧰 Technology Stack
 
-Layer	Technology
+- Layer	Technology
 
-Ingestion	 → Azure Data Factory
+- Ingestion	 → Azure Data Factory
 
-Storage	Azure  → Data Lake Gen2
+- Storage	Azure  → Data Lake Gen2
 
-Transformation  →	Azure Databricks (PySpark)
+- Transformation  →	Azure Databricks (PySpark)
 
-Serving	 → Azure Synapse Analytics (Serverless SQL)
+- Serving	 → Azure Synapse Analytics (Serverless SQL)
+  
+- Reporting  → 	Power BI
 
-Reporting  → 	Power BI
-
-Security	 → Azure Entra ID, Managed Identity
+- Security	 → Azure Entra ID, Managed Identity
 
 Dataset
 
@@ -52,19 +52,19 @@ Link: https://www.kaggle.com/datasets/ukveteran/adventure-works/data
 
 Files Used:
 
-Customers
+- Customers
 
-Products
+- Products
 
-Categories
+- Categories
 
-Sales (2015–2017)
+- Sales (2015–2017)
 
-Returns
+- Returns
 
-Calendar
+- Calendar
 
-Territories
+- Territories
 
 All files are stored under the /Data directory.
 
@@ -72,15 +72,15 @@ All files are stored under the /Data directory.
 
 🎯 Objective
 
-Ingest multiple CSV files from GitHub into ADLS dynamically, without hardcoding file paths or names.
+ Ingest multiple CSV files from GitHub into ADLS dynamically, without hardcoding file paths or names.
 
 ❌ Why Not Static Pipelines?
 
-One Copy Activity per file
+1. One Copy Activity per file
 
-Hardcoded paths & filenames
+2. Hardcoded paths & filenames
 
-Poor scalability & maintenance
+3. Poor scalability & maintenance
 
 ✅ Dynamic Metadata-Driven Design
 
@@ -105,11 +105,11 @@ Output filename
 
 🔄 ADF Pipeline Flow
 
-Lookup Activity – Reads git.json
+- Lookup Activity – Reads git.json
 
-ForEach Activity – Iterates dynamically
+- ForEach Activity – Iterates dynamically
 
-Copy Data Activity – GitHub → ADLS Bronze (parameterized)
+- Copy Data Activity – GitHub → ADLS Bronze (parameterized)
 
 ✔ Scalable
 
@@ -121,19 +121,19 @@ Copy Data Activity – GitHub → ADLS Bronze (parameterized)
 
 🔐 Secure Databricks ↔ ADLS Authentication (Azure Entra ID) Authentication Model
 
-Service Principal (OAuth)
+- Service Principal (OAuth)
 
-No storage keys
+- No storage keys
 
-No secrets in code
+- No secrets in code
 
-Security Steps Implemented
+- Security Steps Implemented
 
-Azure App Registration
+- Azure App Registration
 
-Client ID & Tenant ID
+- Client ID & Tenant ID
 
-Client Secret (stored securely)
+- Client Secret (stored securely)
 
 RBAC: Storage Blob Data Contributor
 
@@ -151,36 +151,37 @@ spark.conf.set( "fs.azure.account.oauth2.client.id", dbutils.secrets.get(scope="
 
 ⚙️ Silver Layer – Data Transformation (Azure Databricks)
 
-Transformation Principles
+**Transformation Principles**
 
-Read from Bronze
+- Read from Bronze
 
-Apply business logic
+- Apply business logic
 
-Use PySpark DataFrame APIs
+- Use PySpark DataFrame APIs
 
-Write optimized Parquet data
+- Write optimized Parquet data
 
 🔹 Key Transformations
-Calendar
 
-Extract Month & Year
+- Calendar
 
-Customers
+- Extract Month & Year
 
-Create FullName using concat_ws()
+- Customers
 
-Products
+- Create FullName using concat_ws()
 
-SKU & Name normalization using split()
+- Products
 
-Sales (Largest Dataset)
+- SKU & Name normalization using split()
 
-Date → Timestamp
+- Sales (Largest Dataset)
 
-String standardization
+- Date → Timestamp
 
-Derived metrics
+- String standardization
+
+- Derived metrics
 
 df_sales = df_sales.withColumn(
 'multiply', col('OrderLineItem') * col('OrderQuantity')
@@ -211,11 +212,11 @@ ADF + Spark + SQL Analytics = Synapse
 
 🔑 Security Model
 
-Uses System Assigned Managed Identity
+- Uses System Assigned Managed Identity
 
-No secrets or passwords
+- No secrets or passwords
 
-RBAC-based access to ADLS
+- RBAC-based access to ADLS
 
 “Synapse accesses ADLS using Managed Identity”
 
@@ -227,11 +228,11 @@ Data Warehouse: Strong SQL and BI support but expensive and less scalable
 
 Lakehouse: Combines cheap storage + SQL analytics + BI friendliness + scalability, making it the modern preferred architecture
 
-Serverless SQL (Key Concept)
+- Serverless SQL (Key Concept)
 
-No infrastructure to manage
+- No infrastructure to manage
 
-Pay-per-query
+- Pay-per-query
 
 Uses OPENROWSET() to read Parquet directly from ADLS
 
@@ -257,11 +258,11 @@ External Tables (CETAS) → Physical Gold data in ADLS
 
 Connectivity
 
-Connects to Synapse Serverless SQL Endpoint
+- Connects to Synapse Serverless SQL Endpoint
 
-Reads Gold views / external tables
+- Reads Gold views / external tables
 
-No direct ADLS access required
+- No direct ADLS access required
 
 <img src="https://github.com/user-attachments/assets/b6357724-6f14-482b-9393-f230afc1c9f8" /> <img src="https://github.com/user-attachments/assets/e67efb94-70df-414e-9a38-ff8855a00733" />
 
